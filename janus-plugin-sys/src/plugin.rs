@@ -107,6 +107,7 @@ pub struct janus_plugin {
     pub incoming_rtp: unsafe extern "C" fn(handle: *mut janus_plugin_session, packet: *mut janus_plugin_rtp),
     pub incoming_rtcp: unsafe extern "C" fn(handle: *mut janus_plugin_session, packet: *mut janus_plugin_rtcp),
     pub incoming_data: unsafe extern "C" fn(handle: *mut janus_plugin_session, packet: *mut janus_plugin_data),
+    pub data_ready: unsafe extern "C" fn(handle: *mut janus_plugin_session),
     pub slow_link: unsafe extern "C" fn(handle: *mut janus_plugin_session, uplink: c_int, video: c_int),
     pub hangup_media: unsafe extern "C" fn(handle: *mut janus_plugin_session),
     pub destroy_session: unsafe extern "C" fn(handle: *mut janus_plugin_session, error: *mut c_int),
